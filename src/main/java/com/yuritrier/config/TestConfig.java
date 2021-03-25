@@ -8,7 +8,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.yuritrier.entites.Item;
+import com.yuritrier.entites.ItemPedido;
 import com.yuritrier.entites.Pedido;
+import com.yuritrier.repositories.ItemPedidoRepository;
 import com.yuritrier.repositories.ItemRepository;
 import com.yuritrier.repositories.PedidoRepository;
 
@@ -21,6 +23,9 @@ public class TestConfig implements CommandLineRunner {
 	
 	@Autowired
 	private PedidoRepository pedidoRepository;
+	
+	@Autowired
+	private ItemPedidoRepository itemPedidoRepository;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -36,6 +41,13 @@ public class TestConfig implements CommandLineRunner {
 		Pedido p3= new Pedido(null);
 		
 		pedidoRepository.saveAll(Arrays.asList(p1, p2, p3));
+		
+		ItemPedido ip1 = new ItemPedido(p2, i1, 4, i1.getPreco());
+		ItemPedido ip2 = new ItemPedido(p1, i2, 2, i2.getPreco());
+		ItemPedido ip3 = new ItemPedido(p3, i3, 1, i3.getPreco());
+		ItemPedido ip4 = new ItemPedido(p1, i1, 7, i1.getPreco());
+		
+		itemPedidoRepository.saveAll(Arrays.asList(ip1, ip2, ip3, ip4));
 	}
 
 	
