@@ -11,29 +11,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_item")
-public class Item implements Serializable {
+@Table(name = "tb_pedido")
+public class Pedido implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", unique = true, updatable = false, nullable = false)
 	private UUID id;
-	private String descricao;
-	private Double preco;
-	private Integer tipoItem;
 	
-	public Item() {
+	public Pedido() {
 	}
 
-	public Item(UUID id, String descricao, Double preco, Integer tipoItem) {
+	public Pedido(UUID id) {
 		super();
 		this.id = id;
-		this.descricao = descricao;
-		this.preco = preco;
-		this.tipoItem = tipoItem;
 	}
-	
 
 	public UUID getId() {
 		return id;
@@ -41,30 +34,6 @@ public class Item implements Serializable {
 
 	public void setId(UUID id) {
 		this.id = id;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public Double getPreco() {
-		return preco;
-	}
-
-	public void setPreco(Double preco) {
-		this.preco = preco;
-	}
-
-	public Integer getTipoItem() {
-		return tipoItem;
-	}
-
-	public void setTipoItem(Integer tipoItem) {
-		this.tipoItem = tipoItem;
 	}
 
 	@Override
@@ -83,7 +52,7 @@ public class Item implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Item other = (Item) obj;
+		Pedido other = (Pedido) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -91,5 +60,6 @@ public class Item implements Serializable {
 			return false;
 		return true;
 	}
-
+	
+	
 }
