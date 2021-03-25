@@ -27,6 +27,7 @@ public class Item implements Serializable {
 	private String descricao;
 	private Double preco;
 	private Integer tipoItem;
+
 	
 	@OneToMany(mappedBy = "id.item")
 	private Set<ItemPedido> itens = new HashSet<>();
@@ -42,7 +43,7 @@ public class Item implements Serializable {
 		this.tipoItem = tipoItem;
 	}
 	
-
+	
 	public UUID getId() {
 		return id;
 	}

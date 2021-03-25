@@ -25,4 +25,25 @@ public class ItemService {
 		return obj.get();
 	}
 	
+	public Item insert(Item obj) {
+		return repository.save(obj);
+	}
+	
+	public void delete(UUID id) {
+		repository.deleteById(id);
+	}
+	
+	public Item update(UUID id, Item obj) {
+		Item entity = repository.getOne(id);
+		updateData(entity, obj);
+		return repository.save(entity);
+	}
+
+	private void updateData(Item entity, Item obj) {
+		entity.setDescricao(obj.getDescricao());
+		entity.setPreco(obj.getPreco());
+		entity.setTipoItem(obj.getTipoItem());
+		
+	}
+	
 }
