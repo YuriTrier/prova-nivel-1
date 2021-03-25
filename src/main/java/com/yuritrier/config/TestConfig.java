@@ -15,7 +15,7 @@ import com.yuritrier.repositories.ItemRepository;
 import com.yuritrier.repositories.PedidoRepository;
 
 @Configuration
-@Profile("test")
+@Profile("dev")
 public class TestConfig implements CommandLineRunner {
 
 	@Autowired
