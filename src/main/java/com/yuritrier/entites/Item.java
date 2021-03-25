@@ -1,6 +1,8 @@
 package com.yuritrier.entites;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -8,7 +10,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_item")
@@ -22,6 +27,9 @@ public class Item implements Serializable {
 	private String descricao;
 	private Double preco;
 	private Integer tipoItem;
+	
+	@OneToMany(mappedBy = "id.item")
+	private Set<ItemPedido> itens = new HashSet<>();
 	
 	public Item() {
 	}
@@ -67,6 +75,15 @@ public class Item implements Serializable {
 		this.tipoItem = tipoItem;
 	}
 
+	@JsonIgnore
+	public Set<Pedido> getPedidos() {
+		Set<Pedido> set = new HashSet<>();
+		for (ItemPedido x : itens) {
+			set.add(x.getPedido());
+		}
+		return set;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
