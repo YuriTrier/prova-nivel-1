@@ -29,4 +29,15 @@ public class PedidoService {
 		return repository.save(obj);
 	}
 	
+	public Pedido update(UUID id, Pedido obj) {
+		Pedido entity = repository.getOne(id);
+		updateData(entity, obj);
+		return repository.save(entity);
+	}
+
+	private void updateData(Pedido entity, Pedido obj) {
+		
+		
+	}
+	
 }

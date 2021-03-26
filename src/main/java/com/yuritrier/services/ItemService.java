@@ -42,8 +42,7 @@ public class ItemService {
 	private void updateData(Item entity, Item obj) {
 		entity.setDescricao(obj.getDescricao());
 		entity.setPreco(obj.getPreco());
-		entity.setTipoItem(obj.getTipoItem());
-		
+		entity.setTipoItem(obj.getTipoItem());	
 	}
 	
 }

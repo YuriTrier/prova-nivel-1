@@ -36,9 +36,9 @@ public class TestConfig implements CommandLineRunner {
 		
 		itemRepository.saveAll(Arrays.asList(i1, i2, i3));
 		
-		Pedido p1 = new Pedido(null);
-		Pedido p2 = new Pedido(null);
-		Pedido p3= new Pedido(null);
+		Pedido p1 = new Pedido(null, 10.0);
+		Pedido p2 = new Pedido(null, 15.0);
+		Pedido p3= new Pedido(null, 25.0);
 		
 		pedidoRepository.saveAll(Arrays.asList(p1, p2, p3));
 		

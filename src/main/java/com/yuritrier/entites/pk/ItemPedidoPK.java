@@ -21,6 +21,7 @@ public class ItemPedidoPK implements Serializable {
 	@JoinColumn(name = "item_id")
 	private Item item;
 	
+	
 	public Item getItem() {
 		return item;
 	}

@@ -1,5 +1,6 @@
 package com.yuritrier.entites;
 
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,12 +27,23 @@ public class Pedido implements Serializable {
 	@OneToMany(mappedBy = "id.pedido")
 	private Set<ItemPedido> itens = new HashSet<>();
 	
+	private Double desconto;
+	
 	public Pedido() {
 	}
 
-	public Pedido(UUID id) {
+	public void setDesconto(Double desconto) {
+		this.desconto = desconto;
+	}
+
+	public Double getDesconto() {
+		return desconto;
+	}
+
+	public Pedido(UUID id, Double desconto) {
 		super();
 		this.id = id;
+		this.desconto = desconto;
 	}
 
 	public UUID getId() {
@@ -46,13 +58,24 @@ public class Pedido implements Serializable {
 		return itens;
 	}
 	
+	public Double getTotalDesconto() {
+		double sum = 0.0;
+		for (ItemPedido x : itens) {
+			if (x.getItem().getTipoItem().equals(1)) {
+				sum += x.getSubTotal();
+			}
+		}
+		return sum * (desconto/100);
+	}
+	
 	public Double getTotal() {
 		double sum = 0.0;
 		for (ItemPedido x : itens) {
 			sum += x.getSubTotal();
 		}
-		return sum;
+		return sum - getTotalDesconto();
 	}
+	
 	
 	@Override
 	public int hashCode() {
