@@ -11,3 +11,6 @@ Para tratamento de testes, na classe TestConfig, há alguns lançamentos manuais
 momento que se finaliza o programa, as tabelas serão derrubadas e iniciarão do mesmo jeito que está designado na classe. Para ajuste e manter as informações no banco, atualizar
 o arquivo application-dev.properties, ajustando o termo "spring.jpa.hibernate.ddl-auto=create-drop" para update.
 Para pesquisa de itens por Id UUID, basta acrescentá-lo da maneira que é apresentado na informação do Json, podendo copiá-lo e colá-lo após a denominação de pedido ou itens.
+
+Para configuração do banco no PostegreSQL, deve-se respeitar o caminho que está definido no arquivo application-dev.properties, denominando o banco de maneira semelhante a url
+definida neste arquivo. Ex: db_pedidos_prova.
