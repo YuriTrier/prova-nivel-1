@@ -1,7 +1,7 @@
 Tecnologias utilizadas:
 
 Para o desenvolvimento do código, foi utilizado o Spring Tools Suite, utilizando a última versão disponível para download (4.10.0 para Windows). O projeto foi feito utilizando o
-modelo Maven, ambos operando com o Java 11. O projeto foi separado em 3 classes de entidade, Item, ItemPedido e Pedido. Há um banco de testes local configurado, para utilização
+modelo Maven, ambos operando com o Java 11. O projeto foi separado em 3 classes de entidade, Item, ItemPedido e Pedido. Há um banco H2 de testes local configurado, para utilização
 caso necessário. Para ativá-lo, será preciso apenas alterar o perfil selecionado na application.properties. Como banco oficial, foi utilizado o PostgreSQL, na versão 13.2.
 Para lançamento de novas informações e verificações de informações presentes no banco, via Json, recomenda-se a utilização do software Postman (versão mais recente), sendo necessário chamar o url
 local para acessos (Ex: http://localhost:8080/...).
@@ -18,3 +18,12 @@ O programa irá criar as tabelas e colunas de maneira automática, porém será 
 
 Na tentativa de exclusão de Itens que possuem relacionamento com pedidos, ou vice versa, o programa irá barrar.
 Para execução do projeto, executar o Run As Spring Boot App na classe ProvaNivelamento1Application.
+
+Para realizar os Posts das informações, deve-se respeitar a nomenclatura das variáveis que foram definidas nas classes entidade. 
+Exemplo: 
+{
+    "descricao": "Servicos de limpeza",
+    "preco": 250.0,
+    "tipoItem": 2
+}
+
