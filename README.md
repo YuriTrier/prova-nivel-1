@@ -15,3 +15,6 @@ Para pesquisa de itens por Id UUID, basta acrescentá-lo da maneira que é apres
 Para configuração do banco no PostgreSQL, deve-se respeitar o caminho que está definido no arquivo application-dev.properties, denominando o banco de maneira semelhante a url
 definida neste arquivo. Ex: db_pedidos_prova.
 O programa irá criar as tabelas e colunas de maneira automática, porém será necessário informar primeiramente o nome do banco de maneira exata a que foi criado no PostgreSQL.
+
+Na tentativa de exclusão de Itens que possuem relacionamento com pedidos, ou vice versa, o programa irá barrar.
+Para execução do projeto, executar o Run As Spring Boot App na classe ProvaNivelamento1Application.
