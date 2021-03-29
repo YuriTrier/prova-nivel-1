@@ -76,6 +76,9 @@ public class Pedido implements Serializable {
 		return sum - getTotalDesconto();
 	}
 	
+	public void add(ItemPedido item) {
+		itens.add(item);
+	}
 	
 	@Override
 	public int hashCode() {
